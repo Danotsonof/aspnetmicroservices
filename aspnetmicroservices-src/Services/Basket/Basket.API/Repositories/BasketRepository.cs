@@ -28,7 +28,7 @@ namespace Basket.API.Repositories
             return JsonConvert.DeserializeObject<ShoppingCart?>(basket);
         }
 
-        public async Task<ShoppingCart> UpdateBasket(ShoppingCart basket)
+        public async Task<ShoppingCart?> UpdateBasket(ShoppingCart basket)
         {
             await this.redisCache.SetStringAsync(basket.UserName, JsonConvert.SerializeObject(basket));
 
