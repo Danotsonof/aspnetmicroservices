@@ -15,11 +15,11 @@
             UserName = userName;
         }
 
-        public decimal TotalPrice
+        public float TotalPrice
         {
             get
             {
-                decimal totalPrice = 0;
+                float totalPrice = 0;
                 foreach (ShoppingCartItem item in Items)
                 {
                     totalPrice += item.Price * item.Quantity;

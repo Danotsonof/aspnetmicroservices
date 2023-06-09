@@ -8,15 +8,15 @@ namespace Discount.GRPC.Services
 {
     public class DiscountService : Protos.Discount.DiscountBase
     {
-        private readonly ILogger<GreeterService> _logger;
+        private readonly ILogger<DiscountService> _logger;
         private readonly IMapper _mapper;
         private readonly IDiscountRepository _discountRepository;
 
-        public DiscountService(ILogger<GreeterService> logger, IMapper mapper, IDiscountRepository discountRepository)
+        public DiscountService(ILogger<DiscountService> logger, IMapper mapper, IDiscountRepository discountRepository)
         {
-            _logger = logger;
-            _mapper = mapper;
-            _discountRepository = discountRepository;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _discountRepository = discountRepository ?? throw new ArgumentNullException(nameof(discountRepository));
         }
 
         public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
