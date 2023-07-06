@@ -1,0 +1,6 @@
+﻿namespace OcelotApiGw
+{
+    public class ocelot
+    {
+    }
+}
