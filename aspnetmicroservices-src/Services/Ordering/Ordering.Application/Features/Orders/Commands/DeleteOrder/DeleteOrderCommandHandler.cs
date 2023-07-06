@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Ordering.Application.Contracts.Persistence;
 using Ordering.Application.Exceptions;
 using Ordering.Domain.Entities;
+using System.Xml.Linq;
 
 namespace Ordering.Application.Features.Orders.Commands.DeleteOrder
 {
@@ -23,7 +24,7 @@ namespace Ordering.Application.Features.Orders.Commands.DeleteOrder
             var orderToDelete = await _orderRepository.GetByIdAsync(request.Id);
             if (orderToDelete == null)
             {
-                throw new NotFoundException(nameof(Order), request.Id);
+                throw new NotFoundException($"Entity \"{nameof(Order)}\" ({request.Id}) was not found.");
             }
 
             await _orderRepository.DeleteAsync(orderToDelete);

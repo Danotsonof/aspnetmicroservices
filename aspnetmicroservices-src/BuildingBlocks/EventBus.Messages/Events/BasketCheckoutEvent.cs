@@ -1,12 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Ordering.Domain.Common;
-
-namespace Ordering.Domain.Entities
+﻿namespace EventBus.Messages.Events
 {
-    public class Order : EntityBase
+    public class BasketCheckoutEvent : IntegrationBaseEvent
     {
         public string UserName { get; set; }
-        [Precision(18, 2)] 
         public decimal TotalPrice { get; set; }
 
         // BillingAddress

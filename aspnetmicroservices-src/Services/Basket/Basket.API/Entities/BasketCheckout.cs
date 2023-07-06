@@ -1,12 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Ordering.Domain.Common;
-
-namespace Ordering.Domain.Entities
+﻿namespace Basket.API.Entities
 {
-    public class Order : EntityBase
+    public class BasketCheckout
     {
         public string UserName { get; set; }
-        [Precision(18, 2)] 
         public decimal TotalPrice { get; set; }
 
         // BillingAddress
